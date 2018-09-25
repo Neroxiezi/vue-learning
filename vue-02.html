@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+    <style>
+        .class1{
+            background: red;
+            color: #eee;
+            }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-html="message"></div>
+        <label for="r1">修改颜色</label>
+        <input type="checkbox" v-model="class1" id="r1">
+        <br>
+        <div v-bind:class="{'class1':class1}">
+            v-bing 元素颜色
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                message: '<i class="fa fa-h1    ">南丞嘚吧嘚</i>',
+                class1: false
+            }
+        })
+    </script>
+</body>
+
+</html>
