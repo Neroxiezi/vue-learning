@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component标签</title>
+
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>PropsData Option Demo</h1>
+        <hr>
+        <header></header>
+    </div>
+</body>
+<script>
+    var header_a = Vue.extend({
+        template: `<p>{{message}}</p>`,
+        data: function () {
+            return {
+                message: '你好这个是vue'
+            }
+        }
+    })
+    new header_a().$mount('header');
+</script>
+
+</html>

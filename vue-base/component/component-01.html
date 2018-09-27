@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>component-1</h1>
+        <hr>
+        <div id="app">
+            <js_one></js_one>
+            <panda here="中国的"></panda>
+        </div>
+    </div>
+</body>
+<script>
+    Vue.component('js_one', {
+        template: '<div style="color:red;">全局化注册的jspang标签</div>'
+    })
+    var app = new Vue({
+        el: '#app',
+        data: {},
+        components: {
+            "panda":{
+                template:`<div style="color:green;">熊猫是 {{ here }}</div>`,
+                props:['here']
+            }
+        }
+    })
+</script>
+
+</html>

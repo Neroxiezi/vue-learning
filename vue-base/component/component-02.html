@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>父子组件关系</h1>
+        <hr>
+        <div id="app">
+            <select_t></select_t>
+        </div>
+    </div>
+</body>
+<script>
+    var city = {
+        template: `<div>中国四川</div>`
+    }
+    var select_t = {
+        template: `<div>
+                    <p> 熊猫是中国的</p>
+                    <city></city>
+            </div>`,
+        components: {
+            "city": city
+        }
+    }
+    new Vue({
+        el:"#app",
+        components:{
+            "select_t":select_t
+        }
+    })
+</script>
+
+</html>
