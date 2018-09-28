@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Example Event Demo</h1>
+        <hr>
+        <div id="app">
+            <p>{{num}}</p>
+            <button @click="add">add</button>
+
+        </div>
+        <p><button onclick="reduce()">reduce</button></p>
+        <p><button onclick="reduceOnce()">reduceOnce</button></p>
+        <p><button onclick="off()">off</button></p>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            num: 1,
+        },
+        methods: {
+            add: function () {
+                this.num++;
+            }
+        }
+    })
+    app.$on('reduce', function () {
+        console.log('执行了reduce()');
+        this.num--;
+    });
+    //只使用一次的实例方法
+    app.$once('reduceOnce', function () {
+        console.log('只执行一次的方法');
+        this.num--;
+    });
+
+    function off() {
+        app.$off('reduce');
+    }
+
+    function reduce() {
+        app.$emit('reduce');
+    }
+
+    function reduceOnce() {
+        app.$emit('reduceOnce');
+    }
+</script>
+
+</html>
