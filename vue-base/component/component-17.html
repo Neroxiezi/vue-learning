@@ -73,11 +73,11 @@
         props: ['show'],
         methods: {
             close: function () {
-                this.show = false
+                vm.closeDialog()
             }
         }
     })
-    new Vue({
+    var vm = new Vue({
         el: "#app",
         data: {
             show: false
