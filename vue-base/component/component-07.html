@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component标签</title>
+
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <!-- 该组件不会被选自然 -->
+    <my-component></my-component>
+</body>
+<script>
+    /**
+        Vue.extend() 是Vue构造器的扩展,调用 Vue.extned() 创建的是一个组件构造器。
+        Vue.extend() 构造器有一个选项对象, 选项对象的 template 属性用于定义组件要渲染的HTML
+        使用Vue.component() 注册组件时 需要提供2个参数第一个参数是组件的标签,第二个参数是组件构造器 
+    
+    */
+    var myComponent = Vue.extend({
+        template: '<div>这个是我自定义的组件</div>'
+    })
+    Vue.component('my-component', myComponent)
+    new Vue({
+        el: "#app"
+    })
+</script>
+
+</html>
