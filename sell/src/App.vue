@@ -1,20 +1,23 @@
 <template>
   <div id="app">
     <v-header></v-header>
-    <div class="tab">
-      <a v-link="{path:'/goods'}">
-        <div class="tab-item">商品</div>
-      </a>
-      <a v-link="{path:'/ratings'}">
-        <div class="tab-item">评论</div>
-      </a>
-      <a v-link="{path:'/seller'}">
-        <div class="tab-item">商家</div>
-      </a>
-    </div>
+    <nav class="navbar navbar-default " role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav my-nav">
+        <li :class="{'active':active}">
+          <router-link to="/"><a>商品</a></router-link>
+        </li>
+        <li :class="{'active':active}">
+          <router-link to="/ratings"><a>评论</a></router-link>
+        </li>
+        <li :class="{'active':active}">
+          <router-link to="/seller"><a>商家</a></router-link>
+        </li>
+      </ul>
+    </nav>
+    <router-view></router-view>
   </div>
-  <router-view></router-view>
-  
 </template>
 
 <script>
@@ -24,18 +27,24 @@ export default {
   name: "App",
   components: {
     vHeader
+  },
+  data() {
+    return {
+      active: true
+    }
   }
 };
 </script>
 
 <style>
-.tab {
-  display: flex;
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
+a {
+  color: #000;
 }
-.tab a {
+.my-nav {
+  display: flex;
+  width: 109%;
+}
+.my-nav li {
   flex: 1;
   text-align: center;
 }
