@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.14/vue.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Component 组件</h3>
+            </div>
+            <div class="panel-body">
+                <div id="app">
+                    <header></header>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var header_a = Vue.extend({
+        template: `<p>{{message}}--{{a}}</p>`,
+        data: function () {
+            return {
+                message: '你好, 我是 Header'
+            }
+        },
+        props: ['a']
+    })
+    /**
+     * 要在挂载时传递一个数字过去，我们就用到了propsData。
+     * 用propsData三步解决传值： 
+     * 1.在全局扩展里加入props进行接收。
+     * propsData:{a:1} 
+     * 2.传递时用propsData进行传递。props:[‘a’] 
+     * 3.用插值的形式写入模板。
+     */
+    new header_a({
+        propsData: {
+            a: '<span style="color:red">这个是传递过去了</span>'
+        }
+    }).$mount('header');
+</script>
+
+</html>
