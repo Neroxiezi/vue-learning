@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.14/vue.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Component 组件</h3>
+            </div>
+            <div class="panel-body">
+                <div id="app">
+                    <!-- 全局组件 -->
+                    <pfinal></pfinal>
+                    <pfinaljs></pfinaljs>
+                </div>
+                <!-- 注意 全局指的是 vue的作用域 -->
+                <pfinal></pfinal>
+
+                <div id="content">
+                    <pfinal></pfinal>
+                    <!-- 局部组件 只能在对应的 vue作用域中使用 -->
+                    <!-- <pfinaljs></pfinaljs> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 
+        组件和指令的区别
+        组件注册的是一个标签，而指令注册的是已有标签里的一个属性。
+        在实际开发中我们还是用组件比较多，指令用的比较少。
+        因为指令看起来封装的没那么好，这只是个人观点。
+     -->
+</body>
+<script>
+    Vue.component('pfinal', {
+        template: ` <div class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Title!</strong> 我是全局pfinal组件
+                    </div>`
+    })
+
+    var App = new Vue({
+        el: "#app",
+        // 注册局部组件
+        components: {
+            'pfinaljs': {
+                template: ` <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Title!</strong> 我是局部的pfinaljs组件
+                        </div>`
+            }
+        }
+    })
+
+    var Content = new Vue({
+        el:"#content"
+    })
+</script>
+
+</html>
