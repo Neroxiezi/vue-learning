@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # webpack 知识
 
 
@@ -42,3 +43,7 @@ npm install --save-dev webpack
 
 
 参考 :[webpack4.x入门配置](https://www.jianshu.com/p/6712e4e4b8fe)
+=======
+# webpack 知识:
+
+>>>>>>> 74e281f116a538d1a601c245aaa2c2400acd04fa
