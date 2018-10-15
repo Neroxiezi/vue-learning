@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.14/vue.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Component 标签</h3>
+            </div>
+            <div class="panel-body">
+
+                <div id="app">
+                    <component :is="who"></component>
+                    <button class="btn btn-primary" @click="changeComponent" type="button">Text</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    var ComponentA = {
+        template: `   <div class="alert alert-danger" style="width:!00%;">
+                    <strong>Title!</strong> 我是第一个组件
+                </div>
+                `
+    }
+    var ComponentB = {
+        template: `   <div class="alert alert-success">
+                    <strong>Title!</strong> 我是第二个组件
+                </div>
+                `
+    }
+    var ComponentC = {
+        template: `   <div class="alert alert-info">
+                    <strong>Title!</strong> 我是第三个组件
+                </div>
+                `
+    }
+    var App = new Vue({
+        el: "#app",
+        data: {
+            who: 'ComponentA'
+        },
+        methods: {
+            changeComponent: function () {
+                if (this.who == 'ComponentA') {
+                    this.who = 'ComponentB';
+                } else if (this.who == 'ComponentB') {
+                    this.who = 'ComponentC';
+                } else {
+                    this.who = 'ComponentA';
+                }
+            }
+        },
+        components: {
+            "ComponentA": ComponentA,
+            "ComponentB": ComponentB,
+            "ComponentC": ComponentC,
+        }
+    })
+</script>
+
+</html>

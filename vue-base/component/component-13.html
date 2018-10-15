@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用script或template标签</title>
+
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="app">
+            <my-components v-bind:myname="name" v-bind:myhref="href"></my-components>
+        </div>
+    </div>
+    <template id="myComponent">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th colspan="2">子组件数据</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>我的名字</td>
+                    <td>{{myname}}</td>
+                </tr>
+                <tr>
+                    <td>我的链接</td>
+                    <td>{{myhref}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </template>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            name: '南丞',
+            href: "https://friday-go.cc"
+        },
+        components: {
+            'my-components': {
+                template: '#myComponent',
+                props: ['myname', 'myhref']
+            }
+        }
+    })
+</script>
+
+</html>

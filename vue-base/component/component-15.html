@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>prop的绑定类型</title>
+
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">prop的绑定类型</h3>
+            </div>
+            <div class="panel-body">
+                <div id="app">
+                    <div id="searchBar">
+                        <span class="label label-danger">搜索</span>
+                        <input type="text" v-model="searchQuery">
+                    </div>
+                    <simple-grid :data="gridDate" :columns="gridColumns" :filter-key="searchQuery"></simple-grid>
+                </div>
+            </div>
+        </div>
+        <template id="grid-template">
+
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th v-for="col in columns">
+                            {{col}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in data" :key="item.id">
+                        <td v-for="col in columns" :key="item.id">
+                            {{item[col]}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </template>
+    </div>
+</body>
+<script>
+    Vue.component('simple-grid', {
+        template: "#grid-template",
+        props: {
+            data: Array,
+            columns: Array,
+            filterKey: String
+        }
+    })
+    var demo = new Vue({
+        el: "#app",
+        data: {
+            searchQuery: '',
+            gridColumns: ['name', 'age', 'sex'],
+            gridDate: [{
+                name: 'Jack',
+                age: 30,
+                sex: 'Male'
+            }, {
+                name: 'Bill',
+                age: 26,
+                sex: 'Male'
+            }, {
+                name: 'Tracy',
+                age: 22,
+                sex: 'Female'
+            }, {
+                name: 'Chris',
+                age: 36,
+                sex: 'Male'
+            }]
+        }
+    })
+</script>
+
+</html>

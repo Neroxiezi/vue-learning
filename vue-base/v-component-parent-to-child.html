@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.14/vue.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Component 父子组件关系</h3>
+            </div>
+            <div class="panel-body">
+                <div id="app">
+                    <pfinal></pfinal>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var pfinaljs = {
+        template: `<div class="alert alert-info">
+                        <strong>PFinalJs 前端开源框架 </strong><a href="https://github.com/Neroxiezi/pfinaljs">https://github.com/Neroxiezi/pfinaljs</a>
+                    </div>`
+    }
+    var pfinal = {
+        template: ` <div class="panel panel-default">
+                          <div class="panel-heading">
+                                <h3 class="panel-title">开源项目介绍</h3>
+                          </div>
+                          <div class="panel-body">
+                                <pfinaljs></pfinaljs>
+                          </div>
+                    </div>`,
+        components: {
+            "pfinaljs": pfinaljs
+        }
+    }
+
+    var app = new Vue({
+        el: "#app",
+        components: {
+            "pfinal": pfinal
+        }
+    })
+</script>
+
+</html>
