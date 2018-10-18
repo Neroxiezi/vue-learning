@@ -12,6 +12,10 @@
                 <el-main class="el-main-content">
                     <ul>
                         <li><i class="fa fa-user-secret" aria-hidden="true"></i>: <span>南丞</span></li>
+                        <li><i class="fa fa-qq" aria-hidden="true"></i>: <span> 1370288056</span></li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i>: <span> lampxiezi@163.com</span></li>
+                        <li><i class="fa fa-envelope-o"></i> 个人简言:</li>
+                        <li></li>  
                     </ul>
                 </el-main>
             </el-container>
@@ -32,7 +36,7 @@ export default {
 </script>
 <style>
 ul li {
-    list-style: none;
+  list-style: none;
 }
 .text {
   font-size: 14px;
@@ -42,6 +46,6 @@ ul li {
   width: 480px;
 }
 .el-card__body {
-    padding: 0px;
+  padding: 0px;
 }
 </style>
