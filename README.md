@@ -50,3 +50,28 @@ packgae.json 解析:
     devDependencies字段指定了项目开发时所依赖的模块；
 
 ```
+
+### webpack 学习
+
+- 初始化package.json
+
+```
+cnpm init -y
+
+```
+
+- 安装 webpack 
+
+```
+ cnpm install webpack webpack-cli -D
+
+```
+
+### webpack info
+
+#### 在webpack 中 所有的文件都是模块
+
+- js模块 模块化(AMD CMD  es6Models)
+
+### 允许直接执行webpack 
+
