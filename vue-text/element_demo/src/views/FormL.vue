@@ -128,6 +128,36 @@
             <!-- textarea -->
             <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea">
             </el-input>
+            <el-input placeholder="请输入内容" v-model="input3">
+                <template slot="prepend">Http://</template>
+            </el-input>
+            <div style="margin-top: 15px;">
+                <el-input placeholder="请输入内容" v-model="input4">
+                    <template slot="append">.com</template>
+                </el-input>
+            </div>
+            <div style="margin-top: 15px;">
+                <el-input placeholder="请输入内容" v-model="input5" class="input-with-select">
+                    <el-select v-model="select" slot="prepend" placeholder="请选择" style="width:120px;">
+                        <el-option label="餐厅名" value="1"></el-option>
+                        <el-option label="订单号" value="2"></el-option>
+                        <el-option label="用户电话" value="3"></el-option>
+                    </el-select>
+                    <el-button slot="append" icon="el-icon-search"></el-button>
+                </el-input>
+            </div>
+        </el-row>
+        <el-row>
+            <div class="demo-input-size">
+                <el-input placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input6">
+                </el-input>
+                <el-input size="medium" placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input7">
+                </el-input>
+                <el-input size="small" placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input8">
+                </el-input>
+                <el-input size="mini" placeholder="请输入内容" suffix-icon="el-icon-date" v-model="input9">
+                </el-input>
+            </div>
         </el-row>
     </div>
 </template>
@@ -162,7 +192,9 @@ export default {
       input21: "",
       input22: "",
       input23: "",
-      textarea: ""
+      textarea: "",
+      input5: "",
+      select: ""
     };
   },
   methods: {
@@ -188,6 +220,9 @@ export default {
     margin-bottom: 10px;
     .demo-input-suffix {
       text-align: left;
+    }
+    .demo-input-size {
+        display: flex;
     }
   }
 }
