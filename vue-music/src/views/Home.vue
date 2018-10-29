@@ -38,9 +38,7 @@
         </el-row>
         <el-row>
           <ul class="musics_list">
-
             <li v-for="(item,index) in musics" :key="index">
-              <router-link :to="{path:'/ranking_list',params:item}">
                 <img :src="item.pic_s192" alt="">
                 <div class="info">
                   <ol v-for="(items,indexs) in item.content" :key="indexs">
@@ -48,16 +46,12 @@
                     <span>{{items.album_title}} - {{items.author}}</span>
                   </ol>
                 </div>
-              </router-link>
             </li>
-
           </ul>
         </el-row>
       </div>
     </div>
-    <transition :name="transitionName">
-      <router-view />
-    </transition>
+    <router-view />
   </div>
 </template>
 <script>
@@ -107,7 +101,7 @@ export default {
   watch: {
     // watch $route 决定使用哪种过渡
     $route(to, from) {
-      console.log(to)
+      console.log(to);
       //to、from是最基本的路由对象，分别表示从(from)某个页面跳转到(to)另一个页面,to.path（表示要跳转到的路由地址），from.path同理。
       // const routerDeep = ["/", "/user"];
       // //找到to.path和from.path在routerDeep数组中的下标
@@ -205,8 +199,8 @@ body {
         padding: 3px 0;
         border-bottom: 1px solid #e4e4e4;
         background-color: #ebeef5;
-        a {
-          display: flex;
+        display: flex;
+          
           img {
             flex: 1;
             width: 100px;
@@ -228,7 +222,6 @@ body {
               line-height: 25px;
             }
           }
-        }
       }
     }
   }
