@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.2/lib/index.css">
+
+<!-- 引入 Vue 和 Vant 的 JS 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vant@2.2/lib/vant.min.js"></script>
+<style>
+    #app div{
+        background-color: #cccccc;
+        height: 50px;
+    }
+</style>
+</head>
+<body>
+    <div id="app">
+            <van-row>
+                    <van-col span="8">span: 8</van-col>
+                    <van-col span="8">span: 8</van-col>
+                    <van-col span="8">span: 8</van-col>
+                  </van-row>
+                  
+                  <van-row>
+                    <van-col span="4">span: 4</van-col>
+                    <van-col span="10" offset="4">offset: 4, span: 10</van-col>
+                  </van-row>
+                  
+                  <van-row>
+                    <van-col offset="12" span="12">offset: 12, span: 12</van-col>
+                  </van-row>
+                  <van-row gutter="20">
+                        <van-col span="8">span: 8</van-col>
+                        <van-col span="8">span: 8</van-col>
+                        <van-col span="8">span: 8</van-col>
+                      </van-row>
+                      <!-- 左对齐 -->
+<van-row type="flex">
+        <van-col span="6">span: 6</van-col>
+        <van-col span="6">span: 6</van-col>
+        <van-col span="6">span: 6</van-col>
+      </van-row>
+      
+      <!-- 居中 -->
+      <van-row type="flex" justify="center">
+        <van-col span="6">span: 6</van-col>
+        <van-col span="6">span: 6</van-col>
+        <van-col span="6">span: 6</van-col>
+      </van-row>
+      
+      <!-- 右对齐 -->
+      <van-row type="flex" justify="end">
+        <van-col span="6">span: 6</van-col>
+        <van-col span="6">span: 6</van-col>
+        <van-col span="6">span: 6</van-col>
+      </van-row>
+      
+      <!-- 两端对齐 -->
+      <van-row type="flex" justify="space-between">
+        <van-col span="6">span: 6</van-col>
+        <van-col span="6">span: 6</van-col>
+        <van-col span="6">span: 6</van-col>
+      </van-row>
+      
+      <!-- 每个元素的两侧间隔相等 -->
+      <van-row type="flex" justify="space-around">
+        <van-col span="6">span: 6</van-col>
+        <van-col span="6">span: 6</van-col>
+        <van-col span="6">span: 6</van-col>
+      </van-row>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+        })
+    </script>
+</body>
+</html>
