@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.14/vue.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" name="" value="" v-model="word">
+    <h1>
+        结果:{{result}}
+    </h1>
+</div>
+<script>
+var app = new Vue({
+    el:"#app",
+    watch:{
+            word: function(newV ,oldV) {
+                axios.get('a.php?word=' + newV).then(function(response){
+                        app.result = response.data                
+                });
+            }
+    },
+    data:{
+        word:'',
+        result:''
+    }
+})
+</script>
+</body>
+</html>

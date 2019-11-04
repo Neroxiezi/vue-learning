@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.14/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <h1 :style="{color:'red',fontSize:size+'px'}">PFinal</h1>
+            <h2 :style="style">PFinal社区</h2>
+            <h3 :style="[pfcms]">pfinal.club</h3>
+            <input type="number" v-model="size">
+
+            <hr>
+            <input type="text" v-model="age" name="" value="">
+            <span v-if="age<20">小孩</span>
+            <span v-else-if="age<30">青年</span>
+            <span v-else-if="age<50">壮年</span>
+            <span v-else>老年</span>
+            <br>
+            
+            <input type="checkbox" v-model="copyright"> 接收协议<br/>
+            <span v-if="copyright==false">请先接受协议</span>
+            <button v-else>注册</button>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data: {
+                red: 'green',
+                size: 16,
+                style: {
+                    color: 'green'
+                },
+                pfcms:{
+                    color:'yellow',
+                    backgroundColor:'red'
+                },
+                age:0,
+                copyright:false,
+            }
+        })
+    </script>
+</body>
+</html>

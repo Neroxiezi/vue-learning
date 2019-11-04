@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.14/vue.js"></script>
+</head>
+<body>
+    <style>
+        .pf1 {color:red}
+        .pf2{color:green}
+    </style>
+    <div id="app">
+        {{pf}}
+        <h1 v-text="pf"></h1>
+        <h2 v-html="pf"></h2>
+        <h1 :class="'pf'+n">PFinal社区</h1>
+        <input type="text" v-model="n" name="" value="">
+        
+    </div>
+    <script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            pf:'<button>PFinal社区</button>',
+            n:1
+        }
+    })
+    </script>
+</body>
+</html>

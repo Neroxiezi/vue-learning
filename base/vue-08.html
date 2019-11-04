@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.14/vue.js"></script>
+</head>
+<body>
+        <style>
+                .success {
+                    color: green;
+                }
+                .error {
+                    color: red;
+                }
+            </style>
+    <div id="app">
+            <li v-for="v in news">
+                    <span :class="v.status?'success':'error'">{{v.title}}</span>
+                    <button v-on:click="changeStatus(v,false)" v-if="v.status">删除</button>
+                    <button v-on:click="changeStatus(v,true)" v-if="!v.status">恢复</button>
+           </li>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            methods: {
+                changeStatus:function(item,status) {
+                    item.status = status
+                }
+            },
+            data:{
+                news:[
+                    {title: 'PFinal社区', status: true},
+                    {title: 'pfinal.club', status: true},
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
